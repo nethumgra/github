@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* 1. Tailwind v4 Theme Configuration */
+@theme {
+  --color-rose-brand: #fb7185;
+  --color-rose-brand-dark: #be185d;
+  --color-ls-gold: #f59e0b;
+  --color-ls-bg: #ffffff;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+/* 2. Scrollbar එක සදහටම Hide කරන Utility එක */
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* 3. Global Styles */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+body {
+  background-color: var(--color-ls-bg); /* */
+  font-family: var(--font-poppins); /* */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 4. Banner (Hero) Border Style */
+.hero-border {
+  border: 2px solid #f3f4f6; /* ලස්සන ලා අළු පාටක් */
+  border-radius: 40px; /* */
+  position: relative;
+  background-color: #f9fafb; /* ටිකක් off-white එකක් */
+}
+
+/* 5. Category Circle Styles (PC එකේදී ලොකු කළා) */
+.category-circle {
+  /* Mobile Size */
+  width: 80px;
+  height: 80px;
+  border-radius: 9999px;
+  background-color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f3f4f6;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Tablet (md) */
+@media (min-width: 768px) {
+  .category-circle {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* Desktop (lg) */
+@media (min-width: 1024px) {
+  .category-circle {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+.category-circle:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); /* */
+  transform: translateY(-5px); /* */
+  border-color: #fb7185; /* rose-brand on hover */
+}
+
+.category-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* කලින් තිබුණු වැරැද්ද මෙතනින් හැදුවා */
+}
+
+/* Mobile Bottom Nav එක content එකට උඩින් නොපෙනෙන්න body එකේ padding එක */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 70px; /* */
+  }
+}
